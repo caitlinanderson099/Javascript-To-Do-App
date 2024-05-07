@@ -28,3 +28,26 @@ function addTodo() {
         alert("Please enter a valid to do item");
     }
 }
+
+// Add an eventlistener to the 'Add Button' to add a new todo item
+document.getElementById('add-button').addEventListener('click', addTodo);
+
+// Event  Listener to mark todo items as completed
+
+// onchange event on the todo item 
+
+document.getElementById('todo-list').addEventListener('change', function(event) {
+    //check if the event trigger was a checkbox
+    if (event.target.type === 'checkbox') {
+        // grab the parent list item of the checkbox
+        const listItem = event.target.parentNode;
+        // check if the checkbox is checked or not
+        if (event.target.checked) {
+            // apply line-through style when the checkbox is checked
+            listItem.style.textDecoration = "line-through";
+        } else {
+            // remove the line-through when unchecked
+            listItem.style.textDecoration = "none";
+        }
+    }
+})
